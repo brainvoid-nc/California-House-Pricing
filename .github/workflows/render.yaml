@@ -39,6 +39,6 @@ jobs:
         APP_NAME: ${{ secrets.RENDER_APP_NAME }}
       run: |
        curl --request GET \
-     --url 'https://api.render.com/v1/services?limit=3' \
+     --url 'https://api.render.com/deploy/srv-cqfkplt6l47c73bg6gog?key=DWb6EEFZpmc' \
      --header 'Accept: application/json' \
      --header 'Authorization: Bearer rnd_C9o3dmygWm0foUSn97vSQKpaT9lW'

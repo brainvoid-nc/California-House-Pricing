@@ -42,4 +42,4 @@ jobs:
         curl --request GET \
         --url 'https://api.render.com/v1/owners?name=california-house-pricing&email=nandinichatterjee2003%40gmail.com&limit=20' \
         --header 'accept: application/json' \
-        --header 'authorization: Bearer rnd_xmmy4zvYJ9i8AL4Z7fUqR4fF3jQ8'
+        --header 'authorization: Bearer rnd_C9o3dmygWm0foUSn97vSQKpaT9lW'

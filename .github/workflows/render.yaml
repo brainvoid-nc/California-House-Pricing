@@ -38,8 +38,7 @@ jobs:
         RENDER_EMAIL: ${{ secrets.RENDER_EMAIL }}
         APP_NAME: ${{ secrets.RENDER_APP_NAME }}
       run: |
-        IMAGE_URL=ghcr.io/${{ github.repository_owner }}/${{ github.repository }}:latest
-        curl --request GET \
-        --url 'https://api.render.com/v1/owners?name=california-house-pricing&email=nandinichatterjee2003%40gmail.com&limit=20' \
-        --header 'accept: application/json' \
-        --header 'authorization: Bearer rnd_C9o3dmygWm0foUSn97vSQKpaT9lW'
+       curl --request GET \
+     --url 'https://api.render.com/v1/services?limit=3' \
+     --header 'Accept: application/json' \
+     --header 'Authorization: Bearer rnd_C9o3dmygWm0foUSn97vSQKpaT9lW'

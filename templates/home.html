@@ -1,85 +1,104 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>California Housing Features Input</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 50px;
-            }
-            form {
-                max-width: 600px;
-                margin: auto;
-            }
-            label {
-                display: block;
-                margin: 10px 0 5px;
-            }
-            input[type="text"], input[type="number"] {
-                width: 100%;
-                padding: 8px;
-                margin: 5px 0 20px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-            input[type="submit"] {
-                background-color: #4CAF50;
-                color: rgb(248, 239, 239);
-                padding: 10px 15px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-            input[type="submit"]:hover {
-                background-color: #45a049;
-            }
-        </style>
-        
-    </head>
-    <body>
-        <div class="login">
-
-        
-            <h1>California Housing Features Input</h1 >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Housing Features Input</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #4CAF50;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .prediction {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>California Housing Features Input</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <label for="MedInc">Median Income:</label>
+            <input type="number" id="MedInc" name="MedInc" step="0.01" required>
             
-
-            <form action="{{ url_for('predict' )}}" method="post">
-                <label for="MedInc">Median Income:</label>
-                <input type="number" id="MedInc" name="MedInc" step="0.01" required><br>
-                
-                <label for="HouseAge">House Age:</label>
-                <input type="number" id="HouseAge" name="HouseAge" step="1" required><br>
-                
-                <label for="AveRooms">Average Rooms:</label>
-                <input type="number" id="AveRooms" name="AveRooms" step="0.01" required><br>
-                
-                <label for="AveBedrms">Average Bedrooms:</label>
-                <input type="number" id="AveBedrms" name="AveBedrms" step="0.01" required><br>
-                
-                <label for="Population">Population:</label>
-                <input type="number" id="Population" name="Population" step="1" required><br>
-                
-                <label for="AveOccup">Average Occupancy:</label>
-                <input type="number" id="AveOccup" name="AveOccup" step="0.01" required><br>
-                
-                <label for="Latitude">Latitude:</label>
-                <input type="number" id="Latitude" name="Latitude" step="0.000001" required><br>
-                
-                <label for="Longitude">Longitude:</label>
-                <input type="number" id="Longitude" name="Longitude" step="0.000001" required><br>
-                
-                
-
-                <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-            </form>
-            <br>
-            <br>
-
+            <label for="HouseAge">House Age:</label>
+            <input type="number" id="HouseAge" name="HouseAge" step="1" required>
             
+            <label for="AveRooms">Average Rooms:</label>
+            <input type="number" id="AveRooms" name="AveRooms" step="0.01" required>
+            
+            <label for="AveBedrms">Average Bedrooms:</label>
+            <input type="number" id="AveBedrms" name="AveBedrms" step="0.01" required>
+            
+            <label for="Population">Population:</label>
+            <input type="number" id="Population" name="Population" step="1" required>
+            
+            <label for="AveOccup">Average Occupancy:</label>
+            <input type="number" id="AveOccup" name="AveOccup" step="0.01" required>
+            
+            <label for="Latitude">Latitude:</label>
+            <input type="number" id="Latitude" name="Latitude" step="0.000001" required>
+            
+            <label for="Longitude">Longitude:</label>
+            <input type="number" id="Longitude" name="Longitude" step="0.000001" required>
+            
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+        <div class="prediction">
+            {{ prediction_text }}
         </div>
-        {{prediction_text}}
-        
-    </body>
+    </div>
+</body>
 </html>

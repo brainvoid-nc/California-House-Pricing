@@ -14,7 +14,7 @@ Create a new environment
 conda create -p venv python==3.9.7 -y
 ```
 
-Procfile is added to give instruction to Heroku instance about what commands need to be run before starting the web app. 
+Procfile is added to give instruction to Render instance about what commands need to be run before starting the web app. 
 
 Commands - green unicorn
 gunicorn is the purest python http server which allows us to run wsgi applications concurrently while using multiple processes. Hence it manages traffic in an app by distributing the number of requests using multiple instances.
